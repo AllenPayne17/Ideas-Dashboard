@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ideas Dashboard</title>
+    <!-- include CSS framework -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ideas Dashboard</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Competitors</th>
+                    <th>Price</th>
+                    <th>Cost</th>
+                    <th>Market Size</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="ideas-table-body">
+                <!-- table rows will be added dynamically using Javascript -->
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-idea-modal">Add Idea</button>
+        <!-- modal for adding a new idea -->
+        <div class="modal fade" id="add-idea-modal" tabindex="-1" role="dialog" aria-labelledby="add-idea-modal-label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="add-idea-modal-label">Add Idea</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="add-idea-form">
+                            <div class="form-group">
+                                <label for="title-input">Title</label>
+                                <input type="text" class="form-control" id="title-input" name="title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="competitors-input">Competitors</label>
+                                <input type="text" class="form-control" id="competitors-input" name="competitors" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="price-input">Price</label>
+                                <input type="number" step="any" class="form-control" id="price-input" name="price" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cost-input">Cost</label>
+                                <input type="number" step="any" class="form-control" id="cost-input" name="cost" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="market-size-input">Market Size</label>
+                                <input type="number" step="any" class="form-control" id="market-size-input" name="market_size" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add Idea</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="modal fade" id="edit-idea-modal" tabindex="-1" role="dialog" aria-labelledby="edit-idea-modal-label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="edit-idea-modal-label">Edit Idea</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="edit-idea-form">
+                            <input type="hidden" id="edit-idea-id" name="id">
+                            <div class="form-group">
+                                <label for="edit-title-input">Title</label>
+                                <input type="text" class="form-control" id="edit-title-input" name="title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-competitors-input">Competitors</label>
+                                <input type="text" class="form-control" id="edit-competitors-input" name="competitors" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-price-input">Price</label>
+                                <input type="number" step="any" class="form-control" id="edit-price-input" name="price" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-cost-input">Cost</label>
+                                <input type="number" step="any" class="form-control" id="edit-cost-input" name="cost" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-market-size-input">Market Size</label>
+                                <input type="number" step="any" class="form-control" id="edit-market-size-input" name="market_size" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+          
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="{{url_for('static', filename='dashboard.js')}}"></script>
+</body>
+</html>
